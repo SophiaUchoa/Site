@@ -1,0 +1,64 @@
+.container { position: relative; }
+
+/* Capa (h-36 bg-gradient-to-r from-pink-600 to-purple-600) */
+.cover {
+  height: 9rem;
+  background: linear-gradient(90deg, #db2777, #9333ea);
+}
+
+/* Card branco arredondado que sobrepõe a capa (-mt-8, shadow, p-4) */
+/* antes: padding: 1rem; */
+.card {
+  background: #fff;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+  margin-top: -2rem;
+  overflow: hidden;
+  padding: 1rem 1rem .75rem;   /* ↓ menos padding no fundo do card */
+  position: relative;
+  z-index: 10;
+}
+
+/* antes: margin-top: .5rem; */
+.statusRow {
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: .75rem;
+  margin-top: .35rem;          /* ↓ um pouco menor */
+}
+
+/* aviso menor e colado */
+.alert {
+  background: #fee2e2;
+  color: #dc2626;
+  text-align: center;
+  font-size: .7rem;
+  line-height: 1.15;
+  padding: .35rem .6rem;
+  border-radius: .375rem;
+  margin: .25rem 1rem 0;       /* ↓ reduz o espaço acima do aviso */
+}
+
+
+.row { display: flex; align-items: center; justify-content: space-between; }
+.left { display: flex; align-items: center; gap: .75rem; }
+
+/* Logo (w-12 h-12 rounded-full bg-gray-200) */
+.logo {
+  width: 3rem; height: 3rem; border-radius: 9999px;
+  background: #e5e7eb; display: flex; align-items: center; justify-content: center;
+  font-weight: 700; color: #111;
+}
+
+/* Título (font-bold text-lg text-black) */
+.title { margin: 0; font-weight: 700; font-size: 1.125rem; color: #000; }
+
+/* Ícones (text-pink-600 w-5 h-5) */
+.icons { display: flex; gap: .75rem; }
+.icon  { width: 1.25rem; height: 1.25rem; color: #db2777; }
+
+/* Linha de status + link (text-xs mt-2, justify-between) */
+.statusText { margin: 0; color: #4b5563; }
+.profileLink { color: #db2777; text-decoration: none; }
+.profileLink:hover { text-decoration: underline; }
+
+

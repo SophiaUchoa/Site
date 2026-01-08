@@ -1,0 +1,164 @@
+/* layout limitado e sem overflow lateral */
+.wrap{
+  min-height:100svh; background:#fff;
+  padding-bottom:calc(64px + env(safe-area-inset-bottom,0px));
+  overflow-x:hidden; display:flex; justify-content:center;
+}
+.inner{ width:100%; max-width:480px; margin:0 auto; }
+
+/* topo */
+/* barra fixa centralizada no mesmo limite (max 480px) */
+.topbar{
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(100%, 480px);     /* acompanha o contêiner .inner */
+  z-index: 1000;
+
+  display:flex;
+  align-items:center;
+  gap:8px;
+  height:52px;
+  padding:0 12px;
+  background:#fff;
+  border-bottom:1px solid #eee;
+}
+
+/* ocupa o espaço da barra fixa pra não sobrepor o conteúdo */
+.topbarSpacer{
+  height: 52px;
+}
+
+.backBtn{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:32px; height:32px; border:0; background:transparent; cursor:pointer; color:#6b7280;
+}
+.title{
+  margin:0; font-weight:750; font-size:16px; color:#111;
+}
+
+/* card do estabelecimento */
+.profileCard{
+  margin:12px; padding:12px;
+  background:#fff; border:1px solid #eee; border-radius:12px;
+  display:flex; align-items:center; gap:12px;
+}
+.avatar{
+  width:44px; height:44px; border-radius:999px;
+  background:#e5e7eb; color:#111; font-weight:800;
+  display:flex; align-items:center; justify-content:center;
+  flex:0 0 auto;
+}
+.avatarImg{
+  width:44px; height:44px; border-radius:999px; object-fit:cover; display:block;
+}
+.profileInfo{ min-width:0; }
+.name{
+  margin:0; font-weight:600; font-size:16px; color:#111;
+  font-family:var(--font-poppins),system-ui,sans-serif;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.sub{ margin:2px 0 0; font-size:12px; color:#6b7280; }
+
+/* bloco genérico */
+.block{ padding:4px 12px 12px; }
+.blockTitle{
+  margin:8px 0 6px; font-weight:800; font-size:15px; color:#222;
+  font-family:var(--font-poppins),system-ui,sans-serif;
+}
+
+/* Localização */
+.photoBox{
+  border:1px solid #eee; border-radius:10px; overflow:hidden;
+  background:#f5f5f5; height:160px; margin-bottom:10px;
+}
+.photoImg{ width:100%; height:100%; object-fit:cover; display:block; }
+
+.infoRow{
+  display:flex; align-items:center; gap:8px;
+  padding:8px 2px; color:#374151; font-size:13px;
+}
+.rowIcon{ width:18px; height:18px; color:#6b7280; flex:0 0 auto; }
+.rowText{ line-height:1.25; }
+.rowLink{ color:#db2777; text-decoration:none; font-weight:700; }
+.rowLink:hover{ text-decoration:underline; }
+
+.divider{ border:0; border-top:1px solid #eee; margin:4px 0; }
+
+/* Horário de funcionamento */
+.blockTitleRow{
+  display:flex; align-items:center; justify-content:space-between; gap:8px;
+}
+.badgeClosed{
+  display:inline-block; padding:4px 8px; border-radius:999px;
+  background:#fee2e2; color:#b91c1c; font-weight:700; font-size:12px;
+}
+
+/* lista de horários (compacta) */
+.hours{
+  list-style:none;
+  padding:0;
+  margin:6px 0 0;
+  display:flex; flex-direction:column; gap:4px;   /* menos espaço entre linhas */
+}
+.hours li{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:8px;
+  padding:4px 0;                                   /* menos padding */
+  border-bottom:1px solid #f2f2f3;
+}
+.hours li:last-child{ border-bottom:none; }
+
+/* não anular o bold do dia atual */
+.hours li strong:not(.dayBold){ font-weight:inherit; }
+
+/* tamanhos menores */
+.dayBold{
+  width:48px;
+  font-weight:800;
+  font-size:12px;                                   /* ↓ 12px */
+  color:#111;
+  font-family:var(--font-poppins),system-ui,sans-serif;
+}
+.dayLabel{
+  width:48px;
+  font-weight:500;
+  font-size:12px;                                   /* ↓ 12px */
+  color:#111;
+  font-family:var(--font-poppins),system-ui,sans-serif;
+}
+.time{
+  flex:1;
+  text-align:right;
+  font-size:12px;                                   /* ↓ 12px */
+  color:#374151;
+}
+
+/* Formas de Pagamento */
+.muted{ margin:4px 0 8px; font-size:13px; color:#111; }
+
+.payRow{
+  display:flex; flex-wrap:wrap; gap:8px;
+  margin-bottom:10px;
+}
+.payTag{
+  display:inline-block;
+  padding:6px 10px;
+  background:#f3f4f6;
+  color:#374151;
+  border:1px solid #e5e7eb;
+  border-radius:8px;
+  font-size:12px; font-weight:700;
+}
+
+/* caixa de PIX (se estiver usando) */
+.pixBox{
+  border:1px solid #e5e7eb;
+  background:#f9fafb;
+  color:#111;
+  font-size:12px;
+  padding:10px;
+  border-radius:8px;
+  line-height:1.35;
+}
